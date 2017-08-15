@@ -1,0 +1,15 @@
+{
+    "name": "canren/red-packets",
+    "authors": [
+        {
+            "name": "canren",
+            "email": "bestsxf@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "psr-4": {
+        "redPackets\\": "src"
+    }
+}
