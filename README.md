@@ -1,5 +1,7 @@
 使用方法
 
+composer require canren/red-packets 直接安装
+
 红包预先生成
 
 redPacketsInit (参数1, 参数2, 参数3)
