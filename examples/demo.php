@@ -3,22 +3,7 @@ require_once __DIR__ . '/../autoload.php';
 
 use redPackets\redPackets;
 
-testDemo(100, 100);
+$redPackets = new redPackets;
 
-function testDemo($money, $size){
-    $redPackets = new redPackets();
+$redPacketsData = $redPackets->redPacketsInit(1, 200000, 200);
 
-    $info = $redPackets->setBasicsMoney(1)
-        ->setRemainMoney($money)
-        ->setRemainSize($size)
-        ->run();
-    $info = json_decode($info, true);
-
-    if(!isset($info['info']['remainMoney'])){
-        return;
-    } else {
-        var_dump('钱数：' . $info['info']['remainMoney'] . ' | 剩余个数' . $info['info']['remainSize']);
-        testDemo($info['info']['remainMoney'], $info['info']['remainSize']);
-    }
-
-}

@@ -1,4 +1,5 @@
 <?php
+
 namespace redPackets;
 
 use Exception;
@@ -41,7 +42,7 @@ class redPackets
             //红包个数
             $remainSize = $this->remainSize - 1;
             //封顶红包
-            $max = ($this->remainMoney - $this->basicsMoney * $this->remainSize) / $this->remainSize * 2;
+            $max = ($this->remainMoney - $this->basicsMoney) / $this->remainSize * 2;
             //随机取红包钱数
             $money = intval(rand(0, 100) * $max / 100);
             //随机取红包钱数+加上保底红包
@@ -54,9 +55,9 @@ class redPackets
             $result = [
                 'isError' => 0,
                 'info' => [
-                    'remainSize' => $remainSize,
-                    'remainMoney' => $remainMoney,
-                    'redPacketsMoney' => $money
+                    'remainSize' => $remainSize, //红包剩余个数
+                    'remainMoney' => $remainMoney, //红包剩余钱数
+                    'redPacketsMoney' => $money //当前红包个数
                 ]
             ];
 
@@ -68,13 +69,43 @@ class redPackets
     }
 
     /**
+     * 初始化红包
+     * @param $basicsMoney
+     * @param $money
+     * @param $size
+     * @param array $redPacketsMoney
+     * @return array
+     */
+    public function redPacketsInit($basicsMoney, $money, $size, &$redPacketsMoney = [])
+    {
+        $redPackets = new redPackets();
+
+        $info = $redPackets->setBasicsMoney($basicsMoney)
+            ->setRemainMoney($money)
+            ->setRemainSize($size)
+            ->run();
+
+        $info = json_decode($info, true);
+
+        $redPacketsMoney[] = $info['info']['redPacketsMoney'];
+
+        if (0 != $info['info']['remainSize']) {
+
+            $this->redPacketsInit($basicsMoney, $info['info']['remainMoney'], $info['info']['remainSize'], $redPacketsMoney);
+
+        }
+
+        return $redPacketsMoney;
+    }
+
+    /**
      * 设置红包最少钱数 单位是分
      * @param $basicsMoneyMoney 最少钱数 默认为1分 大于0
      * @return $this
      */
-    public function setBasicsMoney($basicsMoneyMoney)
+    public function setBasicsMoney($basicsMoney)
     {
-        $this->basicsMoney = $basicsMoneyMoney ? intval($basicsMoneyMoney) : $this->basicsMoney;
+        $this->basicsMoney = $basicsMoney ? intval($basicsMoney) : $this->basicsMoney;
         return $this;
     }
 
