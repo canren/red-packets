@@ -10,7 +10,7 @@
         "php": ">=5.4.0"
     },
     "homepage": "https://github.com/canren/red-packets",
-    "keywords": "php,red-packets,packets",
+    "keywords": ["red-packets", "canren"],
     "version": "0.1.0",
     "license": "bfc0e1e713d62cbc65bab49554fd08838f3b8e80",
     "psr-4": {
