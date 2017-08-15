@@ -32,3 +32,18 @@ setRemainSize 设置红包的个数
         ->run();
 ```
 
+代码测试
+
+```
+
+    $redPackets = new redPackets;
+    while(true){
+        $redPacketsData = $redPackets->redPacketsInit(1, 20000, 200);
+        if (!isset($redPacketsData[199])) {
+            var_dump($redPacketsData);
+            die();
+        }
+    }
+
+```
+

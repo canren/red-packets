@@ -7,3 +7,4 @@ $redPackets = new redPackets;
 
 $redPacketsData = $redPackets->redPacketsInit(1, 200000, 200);
 
+var_dump($redPacketsData);

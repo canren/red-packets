@@ -42,7 +42,7 @@ class redPackets
             //红包个数
             $remainSize = $this->remainSize - 1;
             //封顶红包
-            $max = ($this->remainMoney - $this->basicsMoney) / $this->remainSize * 2;
+            $max = ($this->remainMoney - $this->basicsMoney * $this->remainSize) / $this->remainSize * 2;
             //随机取红包钱数
             $money = intval(rand(0, 100) * $max / 100);
             //随机取红包钱数+加上保底红包
