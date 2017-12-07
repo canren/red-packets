@@ -70,9 +70,9 @@ class redPackets
 
     /**
      * 初始化红包
-     * @param $basicsMoney
-     * @param $money
-     * @param $size
+     * @param int $basicsMoney 兜底的红包金额
+     * @param int $money 红包的钱数
+     * @param int $size 红包的个数
      * @param array $redPacketsMoney
      * @return array
      */
