@@ -13,7 +13,7 @@
     "keywords": ["red-packets", "canren"],
     "version": "0.1.0",
     "license": "bfc0e1e713d62cbc65bab49554fd08838f3b8e80",
-    "psr-4": {
-        "redPackets\\": "src"
+    "autoload": {
+        "psr-4": {"redPackets\\": "src/redPackets"}
     }
 }
