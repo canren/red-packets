@@ -11,8 +11,8 @@
     },
     "homepage": "https://github.com/canren/red-packets",
     "keywords": ["red-packets", "canren"],
-    "version": "0.1.0",
-    "license": "bfc0e1e713d62cbc65bab49554fd08838f3b8e80",
+    "version": "0.2.0",
+    "license": "2ba63ca70455088ca38b34bcaae284c8350db404",
     "autoload": {
         "psr-4": {"redPackets\\": "src/redPackets"}
     }
